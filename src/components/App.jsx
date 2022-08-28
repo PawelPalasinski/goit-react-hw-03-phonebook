@@ -15,8 +15,6 @@ class App extends Component {
     filter: '',
   };
 
-  // https://www.youtube.com/watch?v=Vt1NGJCC5OA -> how to use: componentDidMount & componentDidUpdate
-
   componentDidMount() {
     try {
       const json = localStorage.getItem('contacts');
@@ -51,7 +49,7 @@ class App extends Component {
     return !isExistContact;
   };
 
-  handleremoveContact = id =>
+  handleRemoveContact = id =>
     this.setState(({ contacts }) => ({
       contacts: contacts.filter(contact => contact.id !== id),
     }));
@@ -76,7 +74,7 @@ class App extends Component {
         />
         <ContactList
           contacts={visibleContacts}
-          onRemove={this.handleremoveContact}
+          onRemove={this.handleRemoveContact}
         >
           <Filter filter={filter} onChange={this.handleFilterChange} />
         </ContactList>
